@@ -1,6 +1,6 @@
 {
   "name": "@n8tb1t/use-scroll-position",
-  "version": "1.0.5",
+  "version": "1.0.25",
   "author": "n8tb1t <n8tb1t@gmail.com>",
   "license": "MIT",
   "description": "Use scroll position ReactJS hook done right",
@@ -24,24 +24,25 @@
   "publishConfig": {
     "access": "public"
   },
-  "installConfig": {
-    "pnp": true
-  },
   "main": "lib/index.js",
   "types": "src/index.d.ts",
   "scripts": {
-    "build": "babel src --out-dir lib --ignore **/__tests__",
     "prepare": "cross-env NODE_ENV=production npm run build",
+    "build": "babel src --out-dir lib --ignore **/__tests__",
     "watch": "babel -w src --out-dir lib --ignore **/__tests__",
-    "zzz": "yarn version --patch",
-    "postversion": "git push --tags && yarn publish . --tag $npm_package_version && git push"
+    "release": "yarn version --patch",
+    "preversion": "changelog -p && git add CHANGELOG.md && git commit -m 'Updated CHANGELOG.md'",
+    "postversion": "cross-var yarn publish --new-version $npm_package_version",
+    "postpublish": "git push && git push --tags"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
-    "cross-env": "^5.2.0"
+    "cross-env": "^5.2.0",
+    "cross-var": "^1.1.0",
+    "generate-changelog": "^1.7.1"
   },
   "peerDependencies": {
     "react": "^16.8.6"

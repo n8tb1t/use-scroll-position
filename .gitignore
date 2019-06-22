@@ -1,2 +1,11 @@
+# Node
 node_modules
-*.js
+
+# Log files
+*.log
+
+# Compiled source
+lib
+
+
+
