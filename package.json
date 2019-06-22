@@ -1,0 +1,49 @@
+{
+  "name": "@n8tb1t/use-scroll-position",
+  "version": "1.0.5",
+  "author": "n8tb1t <n8tb1t@gmail.com>",
+  "license": "MIT",
+  "description": "Use scroll position ReactJS hook done right",
+  "keywords": [
+    "react",
+    "hooks",
+    "react-hooks",
+    "scroll",
+    "scroll-position",
+    "use-scroll-position",
+    "useScrollPosition"
+  ],
+  "homepage": "https://github.com/n8tb1t/use-scroll-position#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/n8tb1t/use-scroll-position.git"
+  },
+  "bugs": {
+    "url": "https://github.com/n8tb1t/use-scroll-position/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "installConfig": {
+    "pnp": true
+  },
+  "main": "lib/index.js",
+  "types": "src/index.d.ts",
+  "scripts": {
+    "build": "babel src --out-dir lib --ignore **/__tests__",
+    "prepare": "cross-env NODE_ENV=production npm run build",
+    "watch": "babel -w src --out-dir lib --ignore **/__tests__",
+    "zzz": "yarn version --patch",
+    "postversion": "git push --tags && yarn publish . --tag $npm_package_version && git push"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
+    "cross-env": "^5.2.0"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6"
+  }
+}
