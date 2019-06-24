@@ -1,3 +1,9 @@
+#### 1.0.29 (2019-06-24)
+
+##### Documentation Changes
+
+*  Add more examples ([d90f30fd](https://github.com/n8tb1t/use-scroll-position/commit/d90f30fdfe0654489a665f14f571e11deca8239d))
+
 #### 1.0.28 (2019-06-23)
 
 ##### Documentation Changes
