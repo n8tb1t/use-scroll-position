@@ -1,0 +1,14 @@
+# Node
+node_modules
+
+# Log files
+*.log
+
+# Compiled source
+lib
+
+# Gatsby files
+.cache/
+public
+
+
