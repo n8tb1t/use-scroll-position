@@ -1,3 +1,9 @@
+#### 1.0.31 (2019-06-25)
+
+##### Documentation Changes
+
+*  Add codesandbox examples [#1](https://github.com/n8tb1t/use-scroll-position/pull/1) ([a7a8ec73](https://github.com/n8tb1t/use-scroll-position/commit/a7a8ec73261ecdd44cf9e4e3487019e689d32b34))
+
 #### 1.0.30 (2019-06-25)
 
 ##### Chores
