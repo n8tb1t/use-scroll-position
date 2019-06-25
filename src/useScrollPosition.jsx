@@ -4,7 +4,6 @@ const isBrowser = typeof window !== `undefined`
 
 function getScrollPosition() {
   const position = isBrowser ? document.body.getBoundingClientRect() : null
-
   return isBrowser ? { x: position.left, y: position.top } : { x: 0, y: 0 }
 }
 
