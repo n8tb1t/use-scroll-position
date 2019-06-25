@@ -9,6 +9,9 @@
 
 > It uses the default react hooks rendering lifecycle, which allows you to fully control its behavior and prevent unnecessary renders.
 
+## Demo
+
+- [Hide navbar on scroll](https://n8tb1t.github.io/use-scroll-position/navbar/)
 
 ## Install
 ```
@@ -26,7 +29,9 @@ useScrollPosition(effect,deps)
 `effect`    | Effect callback.
 `deps`      | For effects  to fire on selected dependencies change.
 
-The `useScrollPosition` returns `prevPos` and `currPos`.
+> The `useScrollPosition` returns `prevPos` and `currPos`.
+
+## Examples
 
 ```jsx
 import { useScrollPosition } from '@n8tb1t/use-scroll-position'
