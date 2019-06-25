@@ -1,3 +1,17 @@
+#### 1.0.30 (2019-06-25)
+
+##### Chores
+
+*  Add react example ([cf28ea46](https://github.com/n8tb1t/use-scroll-position/commit/cf28ea465b2f25d8f763ae0252eb19684c5022f5))
+
+##### Documentation Changes
+
+*  Add live example ([a7f2adc0](https://github.com/n8tb1t/use-scroll-position/commit/a7f2adc09171a7f63169741a1aed8d4becf19b56))
+
+##### New Features
+
+*  Add path prefix ([26931dce](https://github.com/n8tb1t/use-scroll-position/commit/26931dce7b87fa11c008cae4bbe9acbadfcf8152))
+
 #### 1.0.29 (2019-06-24)
 
 ##### Documentation Changes
