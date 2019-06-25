@@ -12,6 +12,10 @@
 ## Demo
 
 - [Hide navbar on scroll](https://n8tb1t.github.io/use-scroll-position/navbar/)
+- [Hide/Show sidebar on scroll](https://kv1rn.sse.codesandbox.io/)
+- [Display viewport scroll position](https://4b7qi.sse.codesandbox.io/)
+
+[![Edit dynamic-sidebar](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/dynamic-sidebar-kv1rn?fontsize=14)
 
 ## Install
 ```
