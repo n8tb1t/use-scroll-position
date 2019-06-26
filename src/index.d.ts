@@ -1,6 +1,9 @@
-import { DependencyList, EffectCallback } from "react";
+import {DependencyList, EffectCallback, MutableRefObject} from "react";
+import {element} from "prop-types";
 
 export declare function useScrollPosition(
   effect: EffectCallback,
-  deps?: DependencyList
+  deps?: DependencyList,
+  element?: MutableRefObject<any>,
+  useWindow?: boolean
 );

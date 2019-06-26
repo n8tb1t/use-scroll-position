@@ -2,21 +2,26 @@ import { useRef, useLayoutEffect } from 'react'
 
 const isBrowser = typeof window !== `undefined`
 
-function getScrollPosition() {
-  const position = isBrowser ? document.body.getBoundingClientRect() : null
-  return isBrowser ? { x: position.left, y: position.top } : { x: 0, y: 0 }
+function getScrollPosition({ element, useWindow }) {
+  if (!isBrowser) return { x: 0, y: 0 }
+
+  const target = element ? element.current : document.body
+  const position = target.getBoundingClientRect()
+
+  return useWindow
+    ? { x: window.scrollX, y: window.scrollY }
+    : { x: position.left, y: position.top }
 }
 
-export function useScrollPosition(effect, deps) {
-  const position = useRef(getScrollPosition())
 
+export function useScrollPosition(effect, deps, element, useWindow) {
+  const position = useRef(getScrollPosition({ useWindow }))
   useLayoutEffect(() => {
     let requestRunning = null
-
     function handleScroll() {
       if (isBrowser && requestRunning === null) {
         requestRunning = window.requestAnimationFrame(() => {
-          const currPos = getScrollPosition()
+          const currPos = getScrollPosition({ element, useWindow })
 
           effect({ prevPos: position.current, currPos })
 
@@ -35,4 +40,6 @@ export function useScrollPosition(effect, deps) {
 
 useScrollPosition.defaultProps = {
   deps: [],
+  element: false,
+  useWindow: false
 }
