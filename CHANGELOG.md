@@ -1,3 +1,14 @@
+#### 1.0.32 (2019-06-26)
+
+##### Documentation Changes
+
+*  update docs [#1](https://github.com/n8tb1t/use-scroll-position/pull/1) ([a58fb4fd](https://github.com/n8tb1t/use-scroll-position/commit/a58fb4fdf6c0eeefdac757899c2e2d78775823e6))
+*  refactoring examples ([b804af6e](https://github.com/n8tb1t/use-scroll-position/commit/b804af6e5f3b94c7cd1b59864c4b85dc527a1866))
+
+##### New Features
+
+*  add element and useWindow ([3e4c0950](https://github.com/n8tb1t/use-scroll-position/commit/3e4c0950e98bcf96f2b0dcba402ba16439d702ad))
+
 #### 1.0.31 (2019-06-25)
 
 ##### Documentation Changes
