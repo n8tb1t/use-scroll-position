@@ -11,11 +11,11 @@
 
 ## Demo
 
-- [Hide navbar on scroll](https://n8tb1t.github.io/use-scroll-position/navbar/)
-- [Hide/Show sidebar on scroll](https://kv1rn.sse.codesandbox.io/)
-- [Display viewport scroll position](https://4b7qi.sse.codesandbox.io/)
+- [Hide navbar on scroll](https://n8tb1t.github.io/use-scroll-position/navbar/navbar)
+- [Hide/Show sidebar on scroll](https://n8tb1t.github.io/use-scroll-position/navbar/sidebar)
+- [Display viewport scroll position](https://n8tb1t.github.io/use-scroll-position/navbar/position)
 
-[![Edit dynamic-sidebar](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/dynamic-sidebar-kv1rn?fontsize=14)
+[![Edit use-scroll-position](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/use-scroll-position-4b7qi?fontsize=14)
 
 ## Install
 ```
@@ -25,18 +25,21 @@ yarn add @n8tb1t/use-scroll-position
 ## Usage
 
 ```jsx
-useScrollPosition(effect,deps)
+useScrollPosition(effect,deps, element, useWindow)
 ```
 
 | Arguments | Description |
 | --------- | ----------- |
 `effect`    | Effect callback.
 `deps`      | For effects  to fire on selected dependencies change.
+`element`      | Get scroll position for a specified element by reference.
+`useWindow`      | Use `window.scroll` instead of `document.body.getBoundingClientRect()` to detect scroll position.
 
 > The `useScrollPosition` returns `prevPos` and `currPos`.
 
 ## Examples
 
+**Log current scroll position**
 ```jsx
 import { useScrollPosition } from '@n8tb1t/use-scroll-position'
   
@@ -46,6 +49,7 @@ useScrollPosition(({ prevPos, currPos }) => {
 })
 ```
 
+**Change state based on scroll position**
 ```jsx
 import React, { useState } from 'react'
 import { useScrollPosition } from '@n8tb1t/use-scroll-position'
@@ -56,6 +60,18 @@ useScrollPosition(({ prevPos, currPos }) => {
   const isShow = currPos.y > prevPos.y
   if (isShow !== hideOnScroll) setHideOnScroll(isShow)
 }, [hideOnScroll])
+```
+**Get scroll position for custom element**
+```jsx
+  const [elementPosition, setElementPosition] = useState({ x: 20, y: 150 })
+  const elementRef = useRef()
+  
+    // Element scroll position
+  useScrollPosition(
+    ({ currPos }) => {
+      setElementPosition(currPos)
+    }, [], elementRef
+  )
 ```
 
 ## Why to use
