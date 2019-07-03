@@ -1,3 +1,9 @@
+#### 1.0.35 (2019-07-03)
+
+##### Documentation Changes
+
+*  update screenshot link. ([a1ecef6b](https://github.com/n8tb1t/use-scroll-position/commit/a1ecef6b583546543b9041f0ad77121a4a501f17))
+
 #### 1.0.34 (2019-07-03)
 
 ##### Documentation Changes
