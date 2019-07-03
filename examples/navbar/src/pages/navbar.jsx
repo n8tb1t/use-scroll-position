@@ -15,14 +15,21 @@ export default () => {
       const isShow = currPos.y > prevPos.y
       if (isShow !== hideOnScroll) setHideOnScroll(isShow)
     },
-    [hideOnScroll]
+    [hideOnScroll],
+    null,
+    false,
+    300
   )
 
   return useMemo(
     () => (
       <Fragment>
-        <Navbar show={hideOnScroll}><NavLinks/></Navbar>
-        <Content mt="45"><FakeData/></Content>
+        <Navbar show={hideOnScroll}>
+          <NavLinks />
+        </Navbar>
+        <Content mt="45">
+          <FakeData />
+        </Content>
         <Footer>
           <b>RENDER COUNT: {++rendersCount.current}</b>
         </Footer>
