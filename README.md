@@ -25,7 +25,7 @@ yarn add @n8tb1t/use-scroll-position
 ## Usage
 
 ```jsx
-useScrollPosition(effect,deps, element, useWindow)
+useScrollPosition(effect,deps, element, useWindow, wait)
 ```
 
 | Arguments | Description |

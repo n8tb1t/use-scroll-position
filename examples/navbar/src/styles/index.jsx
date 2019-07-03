@@ -69,6 +69,12 @@ export const Position = styled.div`
   padding: 15px;
   top: 150px;
   left: 10px;
+
+  span {
+    display: block;
+    color: black;
+    font-weight: bold;
+  }
 `
 
 export const RedBox = styled.div`
