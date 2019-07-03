@@ -1,3 +1,12 @@
+#### 1.0.34 (2019-07-03)
+
+##### Documentation Changes
+
+*  update docs. ([3fe0f3a8](https://github.com/n8tb1t/use-scroll-position/commit/3fe0f3a844cc1bb8b318187ad00151289214b51f))
+*  add screenshot. ([cb0a9005](https://github.com/n8tb1t/use-scroll-position/commit/cb0a90056fcdb1e4cb2529ea6001c00610d6ef6a))
+*  fix styles. ([06b65c4e](https://github.com/n8tb1t/use-scroll-position/commit/06b65c4e1f0150e7807fa9bd54013cdcc21f7fa5))
+*  update examples. ([85cb2f5a](https://github.com/n8tb1t/use-scroll-position/commit/85cb2f5ae29dc4dd57f759044c5e36569e8faa7c))
+
 #### 1.0.33 (2019-07-03)
 
 ##### New Features
