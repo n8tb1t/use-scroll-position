@@ -4,6 +4,7 @@
 [![Node version](https://img.shields.io/librariesio/github/n8tb1t/use-scroll-position.svg?style=flat)](https://libraries.io/npm/@n8tb1t%2Fuse-scroll-position)
 [![Node version](https://img.shields.io/github/license/n8tb1t/use-scroll-position.svg?style=flat)](https://github.com/n8tb1t/use-scroll-position/blob/master/LICENSE)
 
+![Screenshot](https://github.com/n8tb1t/use-scroll-position/blob/master/examples/screenshot.png)
 
 `use-scroll-position` is a React [hook](https://reactjs.org/docs/hooks-reference.html) that returns the browser viewport X and Y scroll position. It is highly optimized and using the special technics to avoid unnecessary rerenders!
 
