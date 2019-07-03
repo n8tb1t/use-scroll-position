@@ -1,3 +1,9 @@
+#### 1.0.33 (2019-07-03)
+
+##### New Features
+
+*  add throttling. ([908a59b3](https://github.com/n8tb1t/use-scroll-position/commit/908a59b3ffbdc02a2e01e8cb1e4d77eab5cacffe))
+
 #### 1.0.32 (2019-06-26)
 
 ##### Documentation Changes
