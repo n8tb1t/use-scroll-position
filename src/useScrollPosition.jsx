@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useRef, useLayoutEffect } from 'react'
 
 const isBrowser = typeof window !== `undefined`
@@ -13,22 +14,26 @@ function getScrollPosition({ element, useWindow }) {
     : { x: position.left, y: position.top }
 }
 
-
-export function useScrollPosition(effect, deps, element, useWindow) {
+export function useScrollPosition(effect, deps, element, useWindow, wait) {
   const position = useRef(getScrollPosition({ useWindow }))
+
+  let throttleTimeout = null
+
+  const callBack = () => {
+    const currPos = getScrollPosition({ element, useWindow })
+    effect({ prevPos: position.current, currPos })
+    position.current = currPos
+    throttleTimeout = null
+  }
+
   useLayoutEffect(() => {
-    let requestRunning = null
-    function handleScroll() {
-      if (isBrowser && requestRunning === null) {
-        requestRunning = window.requestAnimationFrame(() => {
-          const currPos = getScrollPosition({ element, useWindow })
-
-          effect({ prevPos: position.current, currPos })
-
-          position.current = currPos
-
-          requestRunning = null
-        })
+    const handleScroll = () => {
+      if (wait) {
+        if (throttleTimeout === null) {
+          throttleTimeout = setTimeout(callBack, wait)
+        }
+      } else {
+        callBack()
       }
     }
 
@@ -41,5 +46,6 @@ export function useScrollPosition(effect, deps, element, useWindow) {
 useScrollPosition.defaultProps = {
   deps: [],
   element: false,
-  useWindow: false
+  useWindow: false,
+  wait: null,
 }

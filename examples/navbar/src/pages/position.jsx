@@ -21,16 +21,14 @@ export default () => {
       const { style } = positionRef.current
       style.top = `${150 + currPos.y}px`
       style.left = `${10 + currPos.x}px`
-    },
-    [], false, true
+    }, [], false, true
   )
 
   // Element scroll position
   useScrollPosition(
     ({ currPos }) => {
       setElementPosition(currPos)
-    },
-    [], redBoxRef
+    }, [], redBoxRef
   )
 
   return useMemo(
@@ -56,6 +54,6 @@ export default () => {
         </Content>
       </Wrapper>
     ),
-    [position]
+    [elementPosition.x, elementPosition.y, position.x, position.y]
   )
 }

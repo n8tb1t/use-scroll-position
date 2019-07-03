@@ -15,7 +15,7 @@
 - [Hide/Show sidebar on scroll](https://n8tb1t.github.io/use-scroll-position/navbar/sidebar)
 - [Display viewport scroll position](https://n8tb1t.github.io/use-scroll-position/navbar/position)
 
-[![Edit use-scroll-position](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/use-scroll-position-4b7qi?fontsize=14)
+[![Edit use-scroll-position](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/use-scroll-position-8nfin?fontsize=14)
 
 ## Install
 ```
@@ -34,6 +34,7 @@ useScrollPosition(effect,deps, element, useWindow)
 `deps`      | For effects  to fire on selected dependencies change.
 `element`      | Get scroll position for a specified element by reference.
 `useWindow`      | Use `window.scroll` instead of `document.body.getBoundingClientRect()` to detect scroll position.
+`wait`      | The `timeout` in ms. Good for performance.
 
 > The `useScrollPosition` returns `prevPos` and `currPos`.
 
@@ -78,4 +79,4 @@ useScrollPosition(({ prevPos, currPos }) => {
 `use-scroll-position` returns the scroll position of the browser window, using a modern, stable and performant implementation.
 
 Most of the time scroll listeners do very expensive work, such as querying dom elements, reading height / width and so on.
-`use-scroll-position` solves this by using [`requestAnimationFrame`](https://stackoverflow.com/a/44779316) technic to avoid too many reflows (the browser to recalculate everything)
+`use-scroll-position` solves this by using [`throttling`](https://stackoverflow.com/a/44779316) technic to avoid too many reflows (the browser to recalculate everything).
