@@ -27,6 +27,10 @@ export function useScrollPosition(effect, deps, element, useWindow, wait) {
   }
 
   useLayoutEffect(() => {
+    if (!isBrowser) {
+      return
+    }
+
     const handleScroll = () => {
       if (wait) {
         if (throttleTimeout === null) {
