@@ -1,3 +1,9 @@
+#### 1.0.36 (2019-09-20)
+
+##### New Features
+
+*  skip listener when no window ([7fafbb2e](https://github.com/n8tb1t/use-scroll-position/commit/7fafbb2e7638f41c340a979a53a0605718413e09))
+
 #### 1.0.35 (2019-07-03)
 
 ##### Documentation Changes
