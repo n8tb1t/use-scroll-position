@@ -50,8 +50,32 @@ useScrollPosition(({ prevPos, currPos }) => {
   console.log(currPos.y)
 })
 ```
+**Change state based on scroll position - Inline CSS**
+```jsx
+import React, { useState } from 'react'
+import { useScrollPosition } from '@n8tb1t/use-scroll-position'
 
-**Change state based on scroll position**
+const [headerStyle, setHeaderStyle] = useState({
+  transition: 'all 200ms ease-in',
+  transform: 'none'
+})
+
+useScrollPosition(({ prevPos, currPos }) => {
+  const isVisible = currPos.y > prevPos.y
+
+  const headerStyle = {
+    visibility: isVisible ? 'visible' : 'hidden',
+    transition: `all 200ms ${isVisible ? 'ease-in' : 'ease-out'}`,
+    transform: isVisible ? 'none' : 'translate(0, -100%)'
+  }
+
+  setHeaderStyle(headerStyle)
+}, [])
+
+const Header = <header style={{ ...headerStyle }} />
+```
+
+**Change state based on scroll position - Styled Components**
 ```jsx
 import React, { useState } from 'react'
 import { useScrollPosition } from '@n8tb1t/use-scroll-position'
