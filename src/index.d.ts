@@ -7,4 +7,4 @@ export declare function useScrollPosition(
   element?: MutableRefObject<HTMLElement | null>,
   useWindow?: boolean,
   wait?: number
-);
+): void;
