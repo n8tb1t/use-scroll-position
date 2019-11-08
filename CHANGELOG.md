@@ -1,3 +1,9 @@
+#### 1.0.41 (2019-11-08)
+
+##### Bug Fixes
+
+*  remove ssr warnings ([01f08034](https://github.com/n8tb1t/use-scroll-position/commit/01f0803483f1847712df48f0bde55753908f8df2))
+
 #### 1.0.40 (2019-10-29)
 
 ##### Bug Fixes
