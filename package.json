@@ -1,6 +1,6 @@
 {
   "name": "@n8tb1t/use-scroll-position",
-  "version": "1.0.41",
+  "version": "1.0.42",
   "author": "n8tb1t <n8tb1t@gmail.com>",
   "license": "MIT",
   "description": "Use scroll position ReactJS hook done right",

@@ -1,3 +1,9 @@
+#### 1.0.42 (2019-11-08)
+
+##### Bug Fixes
+
+*  update deps ([4f4793aa](https://github.com/n8tb1t/use-scroll-position/commit/4f4793aa049d465c93e40da92b1e3b71dbdc497f))
+
 #### 1.0.41 (2019-11-08)
 
 ##### Bug Fixes
