@@ -1,13 +1,13 @@
-import {DependencyList, EffectCallback, MutableRefObject} from "react";
+import { DependencyList, EffectCallback, MutableRefObject } from "react";
 
 interface ScrollProps {
   prevPos: {
-    x: Number;
-    y: Number;
+    x: number;
+    y: number;
   },
   currPos: {
-    x: Number;
-    y: Number;
+    x: number;
+    y: number;
   }
 }
 
