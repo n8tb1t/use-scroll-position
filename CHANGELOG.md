@@ -1,3 +1,9 @@
+#### 1.0.43 (2019-11-20)
+
+##### Bug Fixes
+
+*  change Number types to number ([#11](https://github.com/n8tb1t/use-scroll-position/pull/11)) ([b1936214](https://github.com/n8tb1t/use-scroll-position/commit/b1936214ebb4e0dddb6209b8b9dc930eb9d35394))
+
 #### 1.0.42 (2019-11-08)
 
 ##### Bug Fixes
