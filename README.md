@@ -1,7 +1,7 @@
 # `use-scroll-position`
 
 [![Node version](https://img.shields.io/npm/v/@n8tb1t/use-scroll-position.svg?style=flat)](https://www.npmjs.com/package/@n8tb1t/use-scroll-position)
-[![Node version](https://img.shields.io/librariesio/github/n8tb1t/use-scroll-position.svg?style=flat)](https://libraries.io/npm/@n8tb1t%2Fuse-scroll-position)
+[![Node version](https://img.shields.io/npm/dw/@n8tb1t/use-scroll-position)](https://www.npmjs.com/package/@n8tb1t/use-scroll-position)
 [![Node version](https://img.shields.io/github/license/n8tb1t/use-scroll-position.svg?style=flat)](https://github.com/n8tb1t/use-scroll-position/blob/master/LICENSE)
 
 ![Screenshot](https://github.com/n8tb1t/use-scroll-position/raw/master/examples/screenshot.png)
