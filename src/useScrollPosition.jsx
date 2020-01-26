@@ -11,7 +11,7 @@ function getScrollPosition({ element, useWindow }) {
   const position = target.getBoundingClientRect()
 
   return useWindow
-    ? { x: window.scrollX, y: window.scrollY }
+    ? { x: window.pageXOffset, y: window.pageYOffset }
     : { x: position.left, y: position.top }
 }
 
