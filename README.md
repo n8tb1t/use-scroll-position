@@ -36,6 +36,7 @@ useScrollPosition(effect,deps, element, useWindow, wait)
 `element`      | Get scroll position for a specified element by reference.
 `useWindow`      | Use `window.scroll` instead of `document.body.getBoundingClientRect()` to detect scroll position.
 `wait`      | The `timeout` in ms. Good for performance.
+'boundingElement | if `useWindow` is false, provide a scrollable parent of `element`
 
 > The `useScrollPosition` returns `prevPos` and `currPos`.
 
@@ -44,7 +45,7 @@ useScrollPosition(effect,deps, element, useWindow, wait)
 **Log current scroll position**
 ```jsx
 import { useScrollPosition } from '@n8tb1t/use-scroll-position'
-  
+
 useScrollPosition(({ prevPos, currPos }) => {
   console.log(currPos.x)
   console.log(currPos.y)
@@ -85,7 +86,7 @@ import React, { useState } from 'react'
 import { useScrollPosition } from '@n8tb1t/use-scroll-position'
 
 const [hideOnScroll, setHideOnScroll] = useState(true)
-  
+
 useScrollPosition(({ prevPos, currPos }) => {
   const isShow = currPos.y > prevPos.y
   if (isShow !== hideOnScroll) setHideOnScroll(isShow)
@@ -95,7 +96,7 @@ useScrollPosition(({ prevPos, currPos }) => {
 ```jsx
   const [elementPosition, setElementPosition] = useState({ x: 20, y: 150 })
   const elementRef = useRef()
-  
+
     // Element scroll position
   useScrollPosition(
     ({ currPos }) => {
