@@ -3,11 +3,15 @@ import { useRef } from 'react'
 import { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect'
 
 const isBrowser = typeof window !== `undefined`
+const zeroPosition = { x: 0, y: 0 };
 
-function getScrollPosition({ element, useWindow }) {
-  if (!isBrowser) return { x: 0, y: 0 }
+function getScrollPosition({ element, useWindow }) {  
+  if (!isBrowser) return zeroPosition
 
   const target = element ? element.current : document.body
+
+  if(!target) return zeroPosition
+
   const position = target.getBoundingClientRect()
 
   return useWindow
