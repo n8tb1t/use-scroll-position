@@ -1,3 +1,6 @@
+# IDE
+.idea
+
 # Node
 node_modules
 
@@ -11,4 +14,6 @@ lib
 .cache/
 public
 
+# NPM
+package-lock.json
 
