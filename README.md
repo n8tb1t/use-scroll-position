@@ -10,6 +10,15 @@
 
 > It uses the default react hooks rendering lifecycle, which allows you to fully control its behavior and prevent unnecessary renders.
 
+
+## Important Update Notice
+
+**Starting from v1.0.44 the project has moved to typescript.**
+
+Also, some bugs have been fixed, and thanks to our contributors we added an option to **track the scroll position of specified element inside some custom container**.
+
+> Just pass the `element` reference and the `boundingElement` - (parent container) reference and track their corresponding position!  (`boundingElement` should be scrollable with overflow hidden or whatever)
+
 ## Demo
 
 - [Hide navbar on scroll](https://n8tb1t.github.io/use-scroll-position/navbar/navbar)
@@ -36,7 +45,7 @@ useScrollPosition(effect,deps, element, useWindow, wait)
 `element`      | Get scroll position for a specified element by reference.
 `useWindow`      | Use `window.scroll` instead of `document.body.getBoundingClientRect()` to detect scroll position.
 `wait`      | The `timeout` in ms. Good for performance.
-'boundingElement | if `useWindow` is false, provide a scrollable parent of `element`
+`boundingElement` | Only works with `useWindow` set to false, Just pass the `element` reference and the `boundingElement` - (parent container) reference and track their corresponding position, `boundingElement` should be scrollable with overflow hidden or whatever
 
 > The `useScrollPosition` returns `prevPos` and `currPos`.
 
