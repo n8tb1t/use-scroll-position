@@ -1,3 +1,21 @@
+#### 1.0.45 (2020-09-13)
+
+##### Chores
+
+* **deps:**  bump lodash from 4.17.15 to 4.17.19 ([44a28f2b](https://github.com/n8tb1t/use-scroll-position/commit/44a28f2bb3b6a4f74755dc65e20dce0ab82163ad))
+
+##### Documentation Changes
+
+*  add downloads. ([c5d538b9](https://github.com/n8tb1t/use-scroll-position/commit/c5d538b981d9521fefd86c37c0024a7a8c17f7b2))
+
+##### New Features
+
+* **main:**  refactoring ([#26](https://github.com/n8tb1t/use-scroll-position/pull/26)) ([5b06857e](https://github.com/n8tb1t/use-scroll-position/commit/5b06857e3484ccbec03aa841fc2f4edf78eefc54))
+
+##### Bug Fixes
+
+* **examples:**  fix config ([6a907eab](https://github.com/n8tb1t/use-scroll-position/commit/6a907eab10275f69c9f9804106e4adcd153cb602))
+
 #### 1.0.44 (2020-09-13)
 
 ##### Chores
