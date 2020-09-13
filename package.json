@@ -25,11 +25,11 @@
     "access": "public"
   },
   "main": "lib/index.js",
-  "types": "src/index.d.ts",
+  "types": "lib/index.d.ts",
   "scripts": {
     "prepare": "cross-env NODE_ENV=production npm run build",
-    "build": "babel src --out-dir lib --ignore **/__tests__",
-    "watch": "babel -w src --out-dir lib --ignore **/__tests__",
+    "build": "tsc",
+    "watch": "babel --extensions .tsx -w src --out-dir lib --ignore **/__tests__",
     "release": "yarn version --patch",
     "preversion": "changelog -p && git add CHANGELOG.md",
     "postversion": "cross-var yarn publish --new-version $npm_package_version",
@@ -40,11 +40,20 @@
     "@babel/core": "^7.7.2",
     "@babel/preset-env": "^7.7.1",
     "@babel/preset-react": "^7.7.0",
+    "@babel/preset-typescript": "^7.10.4",
     "cross-env": "^6.0.3",
     "cross-var": "^1.1.0",
-    "generate-changelog": "^1.8.0"
+    "generate-changelog": "^1.8.0",
+    "typescript": "^3.8.3",
+    "tslib": "^2.0.1",
+    "prettier": "^2.0.0",
+    "eslint": "^7.3.1",
+    "eslint-config-airbnb-typescript-prettier": "^3.1.0",
+    "eslint-import-resolver-typescript": "^2.0.0",
+    "@types/react": "latest"
   },
   "peerDependencies": {
-    "react": "^16.8.6"
+    "react": "*",
+    "@types/react": "*"
   }
 }
