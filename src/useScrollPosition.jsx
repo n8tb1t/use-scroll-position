@@ -5,27 +5,40 @@ import { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect'
 const isBrowser = typeof window !== `undefined`
 const zeroPosition = { x: 0, y: 0 };
 
-function getScrollPosition({ element, useWindow }) {  
+function getScrollPosition({ element, useWindow, boundingElement }) {
   if (!isBrowser) return zeroPosition
+    
+  if (useWindow) {
+    return { x: window.scrollX, y: window.scrollY }
+  }
 
   const target = element ? element.current : document.body
 
   if(!target) return zeroPosition
 
   const position = target.getBoundingClientRect()
+  const containerPosition = boundingElement.current.getBoundingClientRect()
 
-  return useWindow
-    ? { x: window.scrollX, y: window.scrollY }
-    : { x: position.left, y: position.top }
+  return {
+    x: (containerPosition?.x || 0) - (position?.x || 0),
+    y: (containerPosition?.y || 0) - (position?.y || 0),
+  }
 }
 
-export function useScrollPosition(effect, deps, element, useWindow, wait) {
-  const position = useRef(getScrollPosition({ useWindow }))
+export function useScrollPosition(
+  effect,
+  deps,
+  element,
+  useWindow,
+  wait,
+  boundingElement
+) {
+  const position = useRef(getScrollPosition({ useWindow, boundingElement }))
 
   let throttleTimeout = null
 
   const callBack = () => {
-    const currPos = getScrollPosition({ element, useWindow })
+    const currPos = getScrollPosition({ element, useWindow, boundingElement })
     effect({ prevPos: position.current, currPos })
     position.current = currPos
     throttleTimeout = null
@@ -46,11 +59,20 @@ export function useScrollPosition(effect, deps, element, useWindow, wait) {
       }
     }
 
-    window.addEventListener('scroll', handleScroll)
+    if (useWindow) {
+      window.addEventListener('scroll', handleScroll)
+    } else {
+      boundingElement.current.addEventListener('scroll', handleScroll)
+    }
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-      throttleTimeout && clearTimeout(throttleTimeout);
+      if (useWindow) {
+        window.removeEventListener('scroll', handleScroll)
+      } else {
+        boundingElement.current.removeEventListener('scroll', handleScroll)
+      }
+
+      throttleTimeout && clearTimeout(throttleTimeout)
     }
   }, deps)
 }
@@ -60,4 +82,5 @@ useScrollPosition.defaultProps = {
   element: false,
   useWindow: false,
   wait: null,
+  boundingElement
 }

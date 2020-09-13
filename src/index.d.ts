@@ -1,4 +1,4 @@
-import { DependencyList, EffectCallback, MutableRefObject } from "react";
+import { DependencyList, MutableRefObject, RefObject } from "react";
 
 interface ScrollProps {
   prevPos: {
@@ -16,5 +16,6 @@ export declare function useScrollPosition(
   deps?: DependencyList,
   element?: MutableRefObject<HTMLElement | null>,
   useWindow?: boolean,
-  wait?: number
+  wait?: number,
+  boundingElement?: RefObject<HTMLElement | null>
 ): void;
