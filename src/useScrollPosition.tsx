@@ -11,6 +11,8 @@ interface IScrollProps {
 	currPos: IPosition;
 }
 
+type ElementRef = MutableRefObject<HTMLElement | undefined>;
+
 const isBrowser = typeof window !== `undefined`;
 const zeroPosition = { x: 0, y: 0 };
 
@@ -21,8 +23,8 @@ const getScrollPosition = ({
 	useWindow,
 	boundingElement,
 }: {
-	element?: MutableRefObject<HTMLElement>;
-	boundingElement?: MutableRefObject<HTMLElement>;
+	element?: ElementRef;
+	boundingElement?: ElementRef;
 	useWindow?: boolean;
 }) => {
 	if (!isBrowser) {
@@ -51,10 +53,10 @@ const getScrollPosition = ({
 export const useScrollPosition = (
 	effect: (props: IScrollProps) => void,
 	deps?: DependencyList,
-	element?: MutableRefObject<HTMLElement>,
+	element?: ElementRef,
 	useWindow?: boolean,
 	wait?: number,
-	boundingElement?: MutableRefObject<HTMLElement>,
+	boundingElement?: ElementRef,
 ): void => {
 	const position = useRef(getScrollPosition({ useWindow, boundingElement }));
 
@@ -83,9 +85,9 @@ export const useScrollPosition = (
 		};
 
 		if (boundingElement) {
-			boundingElement.current?.addEventListener('scroll', handleScroll);
+			boundingElement.current?.addEventListener('scroll', handleScroll, { passive: true });
 		} else {
-			window.addEventListener('scroll', handleScroll);
+			window.addEventListener('scroll', handleScroll, { passive: true });
 		}
 
 		return () => {
