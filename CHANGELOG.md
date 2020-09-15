@@ -1,3 +1,9 @@
+#### 1.0.47 (2020-09-15)
+
+##### Bug Fixes
+
+* **build:**  fix build ([28f8743a](https://github.com/n8tb1t/use-scroll-position/commit/28f8743a444176c32e56459d955c945978cf298e))
+
 #### 1.0.46 (2020-09-13)
 
 #### 1.0.45 (2020-09-13)
