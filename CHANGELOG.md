@@ -1,13 +1,5 @@
 #### 2.0.3 (2020-10-17)
 
-#### 2.0.2 (2020-10-17)
-
-##### Bug Fixes
-
-* **typings:**  Add support for undifined element ([5bfacd75](https://github.com/n8tb1t/use-scroll-position/commit/5bfacd75d9229be02c5c0c632c71263c0ecab8c9))
-
-#### 2.0.1 (2020-10-17)
-
 ##### New Features
 
 * **events:**
