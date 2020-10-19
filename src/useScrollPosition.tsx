@@ -75,7 +75,7 @@ export const useScrollPosition = (
 		const handleScroll = () => {
 			if (wait) {
 				if (throttleTimeout === null) {
-					throttleTimeout = setTimeout(callBack, wait);
+					throttleTimeout = window.setTimeout(callBack, wait);
 				}
 			} else {
 				callBack();
