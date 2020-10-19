@@ -1,3 +1,15 @@
+#### 2.0.3 (2020-10-17)
+
+##### New Features
+
+* **events:**
+  *  Bump version ([8bad4b56](https://github.com/n8tb1t/use-scroll-position/commit/8bad4b568554297f60499786b7a014e49bf10ad7))
+  *  Make listeners passive ([62e20d9f](https://github.com/n8tb1t/use-scroll-position/commit/62e20d9f0fd5e3285fba039e9188fbe8bf407326))
+
+##### Bug Fixes
+
+* **typings:**  Add support for undifined element ([15be1506](https://github.com/n8tb1t/use-scroll-position/commit/15be1506ac8d79bbbcb5c639767e40914a82e711))
+
 #### 1.0.47 (2020-09-15)
 
 ##### Bug Fixes
