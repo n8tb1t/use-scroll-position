@@ -84,6 +84,8 @@ export const useScrollPosition = (
       }
     };
 
+    window.addEventListener('load', handleScroll);
+
     if (boundingElement) {
       boundingElement.current?.addEventListener('scroll', handleScroll, { passive: true });
     } else {
