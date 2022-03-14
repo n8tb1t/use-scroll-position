@@ -11,7 +11,7 @@ interface IScrollProps {
   currPos: IPosition;
 }
 
-type ElementRef = MutableRefObject<HTMLElement | undefined>;
+type ElementRef = MutableRefObject<HTMLElement | null>;
 
 const isBrowser = typeof window !== `undefined`;
 const zeroPosition = { x: 0, y: 0 };
