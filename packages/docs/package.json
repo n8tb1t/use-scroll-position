@@ -1,0 +1,40 @@
+{
+  "private": true,
+  "name": "docs",
+  "author": "n8tb1t <n8tb1t@gmail.com>",
+  "license": "MIT",
+  "description": "Docs site for @n8tb1t/use-scroll-position",
+  "type": "module",
+  "scripts": {
+    "build": "react-router build",
+    "lint": "eslint",
+    "typecheck": "react-router typegen && tsc",
+    "dev": "react-router dev --host 0.0.0.0",
+    "preview": "react-router-serve ./build/server/index.js"
+  },
+  "dependencies": {
+    "@n8tb1t/use-scroll-position": "workspace:*",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-router": "7.6.2",
+    "@react-router/node": "7.6.2",
+    "@react-router/serve": "7.6.2",
+    "isbot": "5.1.28"
+  },
+  "devDependencies": {
+    "@n8tb1t-tools/eslint-plugin": "latest",
+    "@n8tb1t-tools/typescript": "latest",
+    "@types/chance": "1.1.7",
+    "@react-router/dev": "7.6.2",
+    "@react-router/fs-routes": "7.6.2",
+    "vite": "6.3.5",
+    "@vitejs/plugin-react": "4.5.2",
+    "vite-tsconfig-paths": "5.1.4",
+    "@types/react": "19.1.8",
+    "@types/react-dom": "19.1.6",
+    "tailwindcss": "4.1.10",
+    "@tailwindcss/vite": "4.1.10",
+    "clsx": "2.1.1",
+    "tailwind-merge": "3.3.1"
+  }
+}

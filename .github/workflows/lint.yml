@@ -1,0 +1,30 @@
+name: qg
+
+on:
+  push:
+    branches:
+      - develop
+  pull_request:
+    types:
+      - opened
+      - edited
+      - synchronize
+
+jobs:
+  lint:
+    name: lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install workspace
+        uses: ./.github/actions/install
+ 
+      - name: Typecheck
+        run: pnpm typecheck
+      
+      - name: Lint
+        run: pnpm lint
+      

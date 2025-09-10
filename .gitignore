@@ -1,19 +1,18 @@
-# IDE
-.idea
-
-# Node
+# Development
 node_modules
+.vscode
 
-# Log files
+# CI/CD
 *.log
+.turbo
+.build
 
-# Compiled source
-lib
 
-# Gatsby files
-.cache/
-public
+# Secrets
+.env
+ 
+# OS
+.DS_Store
 
-# NPM
+# PM
 package-lock.json
-

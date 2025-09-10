@@ -1,0 +1,4 @@
+{
+  "extends": "@n8tb1t-tools/typescript/tsconfig.node",
+  "include": ["eslint.config.ts", "vite.config.ts", "react-router.config.ts"]
+}
