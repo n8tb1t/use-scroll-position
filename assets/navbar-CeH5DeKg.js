@@ -1,6 +1,6 @@
 import { a as reactExports, o as jsxRuntimeExports, w as withComponentProps } from "./chunk-NL6KNZEE-Cz7MpE0V.js";
-import { S, P as Panel, N as NavLinks, L as LoremIpsum } from "./nav-links-DfMHPnUO.js";
-const Sidebar = () => {
+import { S, P as Panel, N as NavLinks, L as LoremIpsum } from "./nav-links-CiczGcQB.js";
+const Navbar = () => {
   const rendersCount = reactExports.useRef(0);
   const visibleRef = reactExports.useRef(true);
   const [visible, setVisible] = reactExports.useState(true);
@@ -12,11 +12,14 @@ const Sidebar = () => {
         setVisible(isVisible);
       }
     },
-    [setVisible]
+    [setVisible],
+    null,
+    false,
+    300
   );
   return reactExports.useMemo(
     () => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Panel, { visible, placement: "left", children: /* @__PURE__ */ jsxRuntimeExports.jsx(NavLinks, { variant: "blue" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Panel, { visible, placement: "top", children: /* @__PURE__ */ jsxRuntimeExports.jsx(NavLinks, { variant: "orange" }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(LoremIpsum, {}),
       /* @__PURE__ */ jsxRuntimeExports.jsx(Panel, { className: "items-center", placement: "bottom", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-1 bg-orange-400 p-2 text-sm text-white", children: [
         "Renders count:",
@@ -26,15 +29,15 @@ const Sidebar = () => {
     [visible]
   );
 };
-const sidebar = () => /* @__PURE__ */ jsxRuntimeExports.jsx(Sidebar, {});
+const navbar = () => /* @__PURE__ */ jsxRuntimeExports.jsx(Navbar, {});
 const meta = () => [{
-  title: "Sidebar"
+  title: "Navbar"
 }, {
   name: "description",
-  content: "Simple Sidebar Example"
+  content: "Simple Navbar Example"
 }];
-const sidebar$1 = withComponentProps(sidebar);
+const navbar$1 = withComponentProps(navbar);
 export {
-  sidebar$1 as default,
+  navbar$1 as default,
   meta
 };

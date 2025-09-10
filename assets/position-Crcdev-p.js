@@ -1,5 +1,5 @@
 import { a as reactExports, o as jsxRuntimeExports, w as withComponentProps } from "./chunk-NL6KNZEE-Cz7MpE0V.js";
-import { S, P as Panel, N as NavLinks, L as LoremIpsum } from "./nav-links-DfMHPnUO.js";
+import { S, P as Panel, N as NavLinks, L as LoremIpsum } from "./nav-links-CiczGcQB.js";
 const useElementPosition = () => {
   const [renderCount, triggerReRender] = reactExports.useState(0);
   const throttleTimeout = reactExports.useRef(null);

@@ -3034,7 +3034,7 @@ const Panel = ({
   }
 );
 const NavLinks = ({ variant }) => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex h-full", children: [
-  { caption: "navbar", route: "/" },
+  { caption: "navbar", route: "/navbar" },
   { caption: "sidebar", route: "/sidebar" },
   { caption: "position", route: "/position" }
 ].map(({ caption, route }) => /* @__PURE__ */ jsxRuntimeExports.jsx(
