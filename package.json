@@ -1,59 +1,26 @@
 {
-  "name": "@n8tb1t/use-scroll-position",
-  "version": "2.0.3",
+  "private": true,
+  "name": "use-scroll-position",
   "author": "n8tb1t <n8tb1t@gmail.com>",
   "license": "MIT",
-  "description": "Use scroll position ReactJS hook done right",
-  "keywords": [
-    "react",
-    "hooks",
-    "react-hooks",
-    "scroll",
-    "scroll-position",
-    "use-scroll-position",
-    "useScrollPosition"
-  ],
-  "homepage": "https://github.com/n8tb1t/use-scroll-position#readme",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/n8tb1t/use-scroll-position.git"
   },
-  "bugs": {
-    "url": "https://github.com/n8tb1t/use-scroll-position/issues"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
   "scripts": {
-    "prepare": "cross-env NODE_ENV=production npm run build",
-    "build": "tsc",
-    "watch": "babel --extensions .tsx -w src --out-dir lib --ignore **/__tests__",
-    "release": "yarn version --patch",
-    "preversion": "changelog -p && git add CHANGELOG.md",
-    "postversion": "cross-var yarn publish --new-version $npm_package_version",
-    "postpublish": "git push && git push --tags"
+    "build": "TURBO_TELEMETRY_DISABLED=true turbo run build",
+    "lint": "TURBO_TELEMETRY_DISABLED=true turbo run lint",
+    "typecheck": "TURBO_TELEMETRY_DISABLED=true turbo run typecheck",
+    "dev": "TURBO_TELEMETRY_DISABLED=true turbo watch dev"
   },
-  "devDependencies": {
-    "@babel/cli": "^7.7.0",
-    "@babel/core": "^7.7.2",
-    "@babel/preset-env": "^7.7.1",
-    "@babel/preset-react": "^7.7.0",
-    "@babel/preset-typescript": "^7.10.4",
-    "@types/react": "latest",
-    "cross-env": "^6.0.3",
-    "cross-var": "^1.1.0",
-    "eslint": "^7.3.1",
-    "eslint-config-airbnb-typescript-prettier": "^3.1.0",
-    "eslint-import-resolver-typescript": "^2.0.0",
-    "generate-changelog": "^1.8.0",
-    "prettier": "^2.0.0",
-    "tslib": "^2.0.1",
-    "typescript": "^3.8.3"
+  "dependencies": {
+    "turbo": "2.5.4",
+    "beachball": "2.54.0"
   },
-  "peerDependencies": {
-    "@types/react": "*",
-    "react": "*"
+  "packageManager": "pnpm@10.12.4",
+  "beachball": {
+    "branch": "develop",
+    "registry": "https://registry.npmjs.org"
   }
 }

@@ -1,0 +1,14 @@
+{
+  "extends": "@n8tb1t-tools/typescript/tsconfig.react",
+  "compilerOptions": {
+    "rootDirs": [".", "./.react-router/types"],
+    "baseUrl": "./app",
+    "paths": {
+      "@router/*": ["../.react-router/types/app/*"],
+      "@config/*": ["./config/*"],
+      "$components": ["./components"],
+      "$pages": ["./pages"]
+    }
+  },
+  "include": ["app", "tests", ".react-router/types/**/*"]
+}

@@ -1,0 +1,13 @@
+{
+  "extends": "@n8tb1t-tools/typescript/tsconfig.react",
+  "compilerOptions": {
+    "rootDir": ".",
+    "baseUrl": "./src",
+    "paths": {
+      "$constants": ["./constants"],
+      "$types": ["./types"],
+      "$hooks": ["./hooks"]
+    }
+  },
+  "include": ["src"]
+}

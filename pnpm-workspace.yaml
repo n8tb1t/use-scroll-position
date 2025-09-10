@@ -1,0 +1,7 @@
+packages:
+  - packages/*
+
+publicHoistPattern:
+  - "@types/node"
+  - typescript
+  - eslint
