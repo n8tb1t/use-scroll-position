@@ -1,6 +1,5 @@
 import type { Route } from '@router/routes/+types/sidebar'
-
-import { Sidebar } from '$pages'
+import { Sidebar } from 'pages/sidebar'
 
 const sidebar = () => <Sidebar />
 
