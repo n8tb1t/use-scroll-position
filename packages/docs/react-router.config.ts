@@ -4,5 +4,5 @@ export default {
   basename: '/use-scroll-position/',
   buildDirectory: '.build',
   ssr: false,
-  prerender: async () => ['/', 'sidebar', 'position']
+  prerender: async () => ['/navbar', '/sidebar', '/position']
 } satisfies Config

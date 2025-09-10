@@ -5,7 +5,7 @@ import { cn } from './utils'
 export const NavLinks = ({ variant }: { variant: 'orange' | 'blue' }) => (
   <div className="flex h-full">
     {[
-      { caption: 'navbar', route: '/' },
+      { caption: 'navbar', route: '/navbar' },
       { caption: 'sidebar', route: '/sidebar' },
       { caption: 'position', route: '/position' }
     ].map(({ caption, route }) => (

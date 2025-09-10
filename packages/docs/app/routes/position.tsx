@@ -1,6 +1,5 @@
 import type { Route } from '@router/routes/+types/position'
-
-import { Position } from '$pages'
+import { Position } from 'pages/position'
 
 const position = () => <Position />
 

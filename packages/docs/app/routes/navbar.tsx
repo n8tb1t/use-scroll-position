@@ -1,6 +1,5 @@
 import type { Route } from '@router/routes/+types/_index'
-
-import { Navbar } from '$pages'
+import { Navbar } from 'pages/navbar'
 
 const navbar = () => <Navbar />
 
