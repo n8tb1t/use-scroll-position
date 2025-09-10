@@ -5,6 +5,7 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 
 export default defineViteConfig({
   plugins: [tailwindcss(), reactRouter(), tsconfigPaths()],
+  base: '/use-scroll-position/',
   define: {
     'process.env': { NODE_ENV: 'production' }
   },
