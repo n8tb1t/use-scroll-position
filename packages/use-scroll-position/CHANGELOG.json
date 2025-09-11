@@ -2,6 +2,21 @@
   "name": "@n8tb1t/use-scroll-position",
   "entries": [
     {
+      "date": "Thu, 11 Sep 2025 00:24:14 GMT",
+      "version": "3.0.1",
+      "tag": "@n8tb1t/use-scroll-position_v3.0.1",
+      "comments": {
+        "patch": [
+          {
+            "author": "n8tb1t@gmail.com",
+            "package": "@n8tb1t/use-scroll-position",
+            "commit": "a1352445db2aa92fb3f8a8cf77aa89eabd1a1955",
+            "comment": "feat(types): fix typings"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 11 Sep 2025 00:07:19 GMT",
       "version": "3.0.0",
       "tag": "@n8tb1t/use-scroll-position_v3.0.0",
