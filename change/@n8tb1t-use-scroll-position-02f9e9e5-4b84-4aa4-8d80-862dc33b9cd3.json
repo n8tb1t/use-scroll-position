@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "feat(types): fix typings",
+  "packageName": "@n8tb1t/use-scroll-position",
+  "email": "n8tb1t@gmail.com",
+  "dependentChangeType": "patch"
+}
