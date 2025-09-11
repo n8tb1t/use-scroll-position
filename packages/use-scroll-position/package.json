@@ -22,8 +22,8 @@
   "main": ".build/index.js",
   "types": ".build/index.d.ts",
   "files": [
-    "dist/",
-    "/src"
+    ".build/",
+    "src/"
   ],
   "scripts": {
     "build": "tsup src/index.ts --dts --format esm --minify --sourcemap --out-dir .build",
