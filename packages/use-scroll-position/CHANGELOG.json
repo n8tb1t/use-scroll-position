@@ -1,0 +1,20 @@
+{
+  "name": "@n8tb1t/use-scroll-position",
+  "entries": [
+    {
+      "date": "Thu, 11 Sep 2025 00:07:19 GMT",
+      "version": "3.0.0",
+      "tag": "@n8tb1t/use-scroll-position_v3.0.0",
+      "comments": {
+        "major": [
+          {
+            "author": "n8tb1t@gmail.com",
+            "package": "@n8tb1t/use-scroll-position",
+            "commit": "936b79d13786e36c64a5d85b70233adee6bf908c",
+            "comment": "feat(refactoring): address some reported issues and refactor code"
+          }
+        ]
+      }
+    }
+  ]
+}

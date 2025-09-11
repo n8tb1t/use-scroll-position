@@ -1,7 +1,0 @@
-{
-  "type": "major",
-  "comment": "feat(refactoring): address some reported issues and refactor code",
-  "packageName": "@n8tb1t/use-scroll-position",
-  "email": "n8tb1t@gmail.com",
-  "dependentChangeType": "patch"
-}
