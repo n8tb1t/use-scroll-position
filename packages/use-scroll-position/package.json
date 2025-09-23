@@ -1,6 +1,6 @@
 {
   "name": "@n8tb1t/use-scroll-position",
-  "version": "3.0.1",
+  "version": "4.0.0",
   "author": "n8tb1t <n8tb1t@gmail.com>",
   "license": "MIT",
   "description": "React hook to calculate scroll position",

@@ -1,8 +1,16 @@
 # Change Log - @n8tb1t/use-scroll-position
 
-<!-- This log was last generated on Thu, 11 Sep 2025 00:24:14 GMT and should not be manually modified. -->
+<!-- This log was last generated on Tue, 23 Sep 2025 21:35:33 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 4.0.0
+
+Tue, 23 Sep 2025 21:35:33 GMT
+
+### Major changes
+
+- feat(rewrite): a complete rewrite of the library (n8tb1t@gmail.com)
 
 ## 3.0.1
 
