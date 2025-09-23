@@ -1,0 +1,165 @@
+import { TrackOverflowScrollPosition } from '../components/track-overflow-scroll-position'
+import { TrackElementPositionOverflow } from '../components/track-element-position-overflow'
+
+# useOverflowScrollPosition
+
+`useOverflowScrollPosition` is a React hook for tracking the scroll position inside a scrollable container with `overflow`.
+It returns two ref setters:
+
+- `rootRef` – attach this to the scrollable container (the element with overflow).
+- `targetRef` (optional) – attach this to a child element inside the container if you want to track its position relative to the container.
+
+You can use this hook to:
+- Track container’s current scroll position (`x`, `y`).
+- Track the scroll position of a specific element by passing the returned callback as a ref.
+- Detect when the scroll reaches the top or bottom of the viewport.
+- Detect when the specific element on the page reaches the top or bottom of the viewport.
+
+
+## API
+
+```ts
+import { useOverflowScrollPosition } from '@n8tb1t/use-scroll-position'
+
+/**
+ * Tracks the scroll position of the window or a specific element.
+ * 
+ * @param callback - Function called on scroll 
+ * with previous and current positions.
+ * @param options - Optional configuration object.
+ */
+useOverflowScrollPosition(callback, option)
+```
+
+## Callback
+
+```ts
+/**
+ * Callback object passed to the `useOverflowScrollPosition` callback function.
+ */
+interface UseOverflowScrollPositionCallbackOptions {
+  /** Previous scroll position */
+  prevPos: { x: number; y: number }
+  
+  /** Current scroll position */
+  currPos: { x: number; y: number }
+
+  /** True if scrolled to the top */
+  top: boolean
+
+  /** True if scrolled to the bottom */
+  bottom: boolean
+}
+```
+
+## options
+
+```ts
+/**
+ * Optional configuration object for the hook.
+ */
+interface Options {
+  /** Number of milliseconds to wait before calling the callback (throttle) */
+  await: number
+}
+```
+
+## Basic example
+
+:::code-group
+ 
+<div data-title="Preview">
+  <TrackOverflowScrollPosition />
+</div>
+ 
+```tsx [track-overflow-scroll-position.tsx]
+import { useOverflowScrollPosition } from '@n8tb1t/use-scroll-position'
+import { useMemo, useRef, useState } from 'react'
+
+import { LoremIpsum, NavLinks, Panel } from '$components'
+
+export const Overflow = () => {
+  const rendersCount = useRef(0)
+
+  const [visible, setVisible] = useState(true)
+
+  const [setRootRef] = useOverflowScrollPosition(
+    ({ prevPos, currPos, top, bottom }) => {
+      setVisible(top || (!bottom && currPos.y <= prevPos.y))
+    }
+  )
+
+  return useMemo(
+    () => (
+      <div ref={setRootRef} className="h-screen overflow-auto">
+        <Panel visible={visible} placement="top">
+          <NavLinks variant="orange" />
+        </Panel>
+        <LoremIpsum />
+        <Panel className="items-center" placement="bottom">
+          <div className="flex gap-1 bg-orange-400 p-2 text-sm text-white">
+            Renders count:
+            <span className="text-gray-800">{++rendersCount.current}</span>
+          </div>
+        </Panel>
+      </div>
+    ),
+    [visible, setRootRef]
+  )
+}
+```
+ 
+:::
+
+## Track element position
+
+Here, we attach the callback from `useOverflowScrollPosition` to the HTML element via a ref. Now you can easily track the element’s position and know when it hits the top or bottom of the viewport.
+
+:::code-group
+ 
+<div data-title="Preview">
+  <TrackElementPositionOverflow />
+</div>
+ 
+```tsx [track-element-scroll-position.tsx]
+import {
+  useOverflowScrollPosition,
+  type UseOverflowScrollPositionCallbackOptions
+} from '@n8tb1t/use-scroll-position'
+import { useMemo, useState } from 'react'
+
+import { cn, LoremIpsum } from '$components'
+
+export const UseOverflowPosition = () => {
+  const [redBoxPosition, setRedBoxPosition] =
+    useState<UseOverflowScrollPositionCallbackOptions>()
+
+  const [setRootRef, setRedBoxRef] =
+    useOverflowScrollPosition(setRedBoxPosition)
+
+  return useMemo(
+    () => (
+      <div ref={setRootRef} className="h-dvh overflow-auto">
+        <LoremIpsum length={2} />
+        <div
+          ref={setRedBoxRef}
+          className={cn(
+            'top-[250px] isolate ml-12 flex w-fit gap-2 rounded-sm bg-orange-400 p-4 text-orange-950 ring-3 ring-orange-600 ring-inset',
+            {
+              'bg-green-400 text-green-950 ring-green-600': redBoxPosition?.top,
+              'bg-red-400 text-red-950 ring-red-600': redBoxPosition?.bottom
+            }
+          )}
+        >
+          <span>X:{redBoxPosition?.currPos?.x}</span>
+          <span>Y:{redBoxPosition?.currPos?.y}</span>
+        </div>
+        <LoremIpsum length={4} />
+      </div>
+    ),
+    [redBoxPosition, setRedBoxRef, setRootRef]
+  )
+}
+```
+ 
+:::

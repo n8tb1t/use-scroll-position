@@ -1,0 +1,37 @@
+{
+  "private": true,
+  "name": "demo",
+  "type": "module",
+  "scripts": {
+    "build": "react-router build",
+    "lint": "eslint",
+    "typecheck": "react-router typegen && tsc",
+    "dev": "react-router dev --host 0.0.0.0",
+    "react-router:preview": "react-router-serve ./build/server/index.js",
+    "vite:preview": "vite preview"
+  },
+  "dependencies": {
+    "@n8tb1t/use-scroll-position": "workspace:*",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
+    "react-router": "7.9.1",
+    "@react-router/node": "7.9.1",
+    "@react-router/serve": "7.9.1",
+    "isbot": "5.1.30"
+  },
+  "devDependencies": {
+    "@n8tb1t-tools/eslint-plugin": "latest",
+    "@n8tb1t-tools/typescript": "latest",
+    "@react-router/dev": "7.9.1",
+    "@react-router/fs-routes": "7.9.1",
+    "vite": "7.1.7",
+    "@vitejs/plugin-react": "5.0.3",
+    "vite-tsconfig-paths": "5.1.4",
+    "@types/react": "19.1.13",
+    "@types/react-dom": "19.1.9",
+    "tailwindcss": "4.1.13",
+    "@tailwindcss/vite": "4.1.13",
+    "clsx": "2.1.1",
+    "tailwind-merge": "3.3.1"
+  }
+}

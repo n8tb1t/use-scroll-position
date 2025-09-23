@@ -1,0 +1,166 @@
+import { Callout } from 'vocs/components'
+
+import { TrackBodyScrollPosition } from '../components/track-body-scroll-position'
+import { TrackElementPositionBody } from '../components/track-element-position-body'
+
+# useBodyScrollPosition
+
+<Callout type="success">
+  Just like <b>useWindowScrollPosition</b>, <b>useBodyScrollPosition</b> lets you track scrolling — but under the hood it uses a different method to detect position.
+</Callout>
+
+Lets you track scrolling on the `global page`. It returns a `callback` that can be passed as a `ref` to any child element. When used this way, it tracks the scroll position of that element instead of the `window`.
+
+You can use this hook to:
+- Track global window scroll position.
+- Track the scroll position of a specific element by passing the returned callback as a ref.
+- Detect when the scroll reaches the top or bottom of the viewport.
+- Detect when the specific element on the page reaches the top or bottom of the viewport.
+
+## API
+
+```ts
+import { useBodyScrollPosition } from '@n8tb1t/use-scroll-position'
+
+/**
+ * Tracks the scroll position of the window or a specific element.
+ * 
+ * @param callback - Function called on scroll 
+ * with previous and current positions.
+ * @param options - Optional configuration object.
+ */
+useBodyScrollPosition(callback, option)
+```
+
+## Callback
+
+```ts
+/**
+ * Callback object passed to the `useBodyScrollPosition` callback function.
+ */
+interface UseBodyScrollPositionCallbackOptions {
+  /** Previous scroll position */
+  prevPos: { x: number; y: number }
+  
+  /** Current scroll position */
+  currPos: { x: number; y: number }
+
+  /** True if scrolled to the top */
+  top: boolean
+
+  /** True if scrolled to the bottom */
+  bottom: boolean
+}
+```
+
+## options
+
+```ts
+/**
+ * Optional configuration object for the hook.
+ */
+interface Options {
+  /** Number of milliseconds to wait before calling the callback (throttle) */
+  await: number
+}
+```
+
+## Basic example
+
+:::code-group
+ 
+<div data-title="Preview">
+  <TrackBodyScrollPosition />
+</div>
+ 
+```tsx [track-body-scroll-position.tsx]
+import { useBodyScrollPosition } from '@n8tb1t/use-scroll-position'
+import { useMemo, useRef, useState } from 'react'
+
+import { LoremIpsum, NavLinks, Panel } from '$components'
+
+export const Navbar = () => {
+  const rendersCount = useRef(0)
+
+  const [visible, setVisible] = useState(true)
+
+  useBodyScrollPosition(({ prevPos, currPos, top, bottom }) => {
+    setVisible(top || (!bottom && currPos.y >= prevPos.y))
+  }, {})
+
+  return useMemo(
+    () => (
+      <div>
+        <Panel visible={visible} placement="top">
+          <NavLinks variant="orange" />
+        </Panel>
+        <LoremIpsum />
+        <Panel className="items-center" placement="bottom">
+          <div className="flex gap-1 bg-orange-400 p-2 text-sm text-white">
+            Renders count:
+            <span className="text-gray-800">{++rendersCount.current}</span>
+          </div>
+        </Panel>
+      </div>
+    ),
+    [visible]
+  )
+}
+```
+ 
+:::
+
+## Track element position
+
+Here, we attach the callback from `useBodyScrollPosition` to the `HTML` element via a ref. Now you can easily track the element’s position and know when it hits the top or bottom of the viewport.
+
+:::code-group
+ 
+<div data-title="Preview">
+  <TrackElementPositionBody />
+</div>
+ 
+```tsx [track-element-position.tsx]
+import {
+  useBodyScrollPosition,
+  type UseBodyScrollPositionCallbackOptions
+} from '@n8tb1t/use-scroll-position'
+import { useMemo, useState } from 'react'
+
+import { cn, LoremIpsum, NavLinks, Panel } from '$components'
+
+export const UseBodyPosition = () => {
+  const [redBoxPosition, setRedBoxPosition] =
+    useState<UseBodyScrollPositionCallbackOptions>()
+
+  const setRedBoxRef = useBodyScrollPosition(setRedBoxPosition)
+
+  return useMemo(
+    () => (
+      <div>
+        <Panel placement="top">
+          <NavLinks variant="orange" />
+        </Panel>
+        <LoremIpsum length={1} />
+        <div
+          ref={setRedBoxRef}
+          className={cn(
+            'top-[250px] isolate ml-12 flex w-fit gap-2 rounded-sm bg-orange-400 p-4 text-orange-950 ring-3 ring-orange-600 ring-inset',
+            {
+              'bg-green-400 text-green-950 ring-green-600': redBoxPosition?.top,
+              'bg-red-400 text-red-950 ring-red-600': redBoxPosition?.bottom
+            }
+          )}
+        >
+          <span>X:{redBoxPosition?.currPos?.x}</span>
+          <span>Y:{redBoxPosition?.currPos?.y}</span>
+        </div>
+        <LoremIpsum />
+      </div>
+    ),
+    [redBoxPosition, setRedBoxRef]
+  )
+}
+```
+ 
+:::

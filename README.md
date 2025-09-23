@@ -1,137 +1,150 @@
-# `use-scroll-position`
+# use-scroll-position
 
-[![Node version](https://img.shields.io/npm/v/@n8tb1t/use-scroll-position.svg?style=flat)](https://www.npmjs.com/package/@n8tb1t/use-scroll-position)
-[![Node version](https://img.shields.io/npm/dw/@n8tb1t/use-scroll-position)](https://www.npmjs.com/package/@n8tb1t/use-scroll-position)
-[![Node version](https://img.shields.io/github/license/n8tb1t/use-scroll-position.svg?style=flat)](https://github.com/n8tb1t/use-scroll-position/blob/master/LICENSE)
+[![NPM Version](https://img.shields.io/npm/v/@n8tb1t/use-scroll-position.svg?style=flat)](https://www.npmjs.com/package/@n8tb1t/use-scroll-position)
+[![Downloads](https://img.shields.io/npm/dw/@n8tb1t/use-scroll-position)](https://www.npmjs.com/package/@n8tb1t/use-scroll-position)
+[![License](https://img.shields.io/github/license/n8tb1t/use-scroll-position.svg?style=flat)](https://github.com/n8tb1t/use-scroll-position/blob/master/LICENSE)
 
 ![Screenshot](https://github.com/n8tb1t/use-scroll-position/raw/develop/packages/docs/screenshot.png)
 
-`use-scroll-position` is a React [hook](https://reactjs.org/docs/hooks-reference.html) that returns the browser viewport X and Y scroll position. It is highly optimized and using the special technics to avoid unnecessary rerenders!
+`use-scroll-position` is a **lightweight, tree-shakable React hook library** for detecting and tracking scroll position — either of the **window** or a specific **element**. Designed for performance-sensitive use cases.
 
-> It uses the default react hooks rendering lifecycle, which allows you to fully control its behavior and prevent unnecessary renders.
+> ⚡️ Version **4.0.0** is a complete rewrite of the library.  
+> For older versions, see the [legacy docs](https://github.com/n8tb1t/use-scroll-position/blob/develop/README-LEGACY.md).
 
-## Important Update Notice
+---
 
-**Starting from v1.0.44 the project has moved to typescript.**
+## ⚡️ Quickstart
 
-Also, some bugs have been fixed, and thanks to our contributors we added an option to **track the scroll position of specified element inside some custom container**.
+Track the global **window scroll position** in just a few lines:
 
-> Just pass the `element` reference and the `boundingElement` - (parent container) reference and track their corresponding position!  (`boundingElement` should be scrollable with overflow hidden or whatever)
+```tsx
+import { useWindowScrollPosition } from '@n8tb1t/use-scroll-position'
 
-## Demo
-
-- [Hide navbar on scroll](https://n8tb1t.github.io/use-scroll-position/navbar)
-- [Hide/Show sidebar on scroll](https://n8tb1t.github.io/use-scroll-position/sidebar)
-- [Display viewport scroll position](https://n8tb1t.github.io/use-scroll-position/position)
-
-[![Edit use-scroll-position](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/use-scroll-position-8nfin?fontsize=14)
-
-## Install
-
-```
-yarn add @n8tb1t/use-scroll-position
-```
-
-## Usage
-
-```jsx
-useScrollPosition(effect,deps, element, useWindow, wait)
-```
-
-| Arguments   | Description                                                                                                                                                                                                                      |
-| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `effect`    | Effect callback.                                                                                                                                                                                                                 |
-| `deps`      | For effects  to fire on selected dependencies change.                                                                                                                                                                            |
-| `target`    | Get scroll position for a specified element by reference.                                                                                                                                                                        |
-| `useWindow` | Use `window.scroll` instead of `document.body.getBoundingClientRect()` to detect scroll position.                                                                                                                                |
-| `wait`      | The `timeout` in ms. Good for performance.                                                                                                                                                                                       |
-| `root`      | Only works with `useWindow` set to false, Just pass the `target` reference and the `root` - (parent container) reference and track their corresponding position, `root` should be scrollable with  `overflow:scroll` or whatever |
-
-> The `useScrollPosition` returns `prevPos` and `currPos`.
-
-## Examples
-
-**Log current scroll position**
-
-```jsx
-import { useScrollPosition } from '@n8tb1t/use-scroll-position'
-
-useScrollPosition(({ prevPos, currPos }) => {
-  console.log(currPos.x)
-  console.log(currPos.y)
+useWindowScrollPosition(({ currPos }) => {
+  console.log('Current scroll position:', currPos.y)
 })
 ```
 
-**Change state based on scroll position - Inline CSS**
+---
 
-```jsx
-import React, { useState } from 'react'
-import { useScrollPosition } from '@n8tb1t/use-scroll-position'
+## 📖 Documentation
 
-const [headerStyle, setHeaderStyle] = useState({
-  transition: 'all 200ms ease-in'
+👉 [Full Docs Site](https://n8tb1t.github.io/use-scroll-position)
+
+- [useWindowScrollPosition](https://n8tb1t.github.io/use-scroll-position/use-window-scroll-position) – track global window scroll or specific element position.
+- [useBodyScrollPosition](https://n8tb1t.github.io/use-scroll-position/use-body-scroll-position) – similar to window scroll, with a different detection method.
+- [useOverflowScrollPosition](https://n8tb1t.github.io/use-scroll-position/use-overflow-scroll-position) – track scroll inside an overflow container (supports root + child target refs).
+
+---
+
+## ✨ Features
+
+- ✅ React 19 support  
+- ✅ SSR-ready  
+- ✅ LLM-friendly docs  
+- ✅ Native TypeScript  
+
+---
+
+## 📦 Installation
+
+Using **NPM**:
+
+```bash
+npm install @n8tb1t/use-scroll-position
+```
+
+Using **PNPM**:
+
+```bash
+pnpm add @n8tb1t/use-scroll-position
+```
+
+---
+
+## 🚀 Usage
+
+### Track window scroll position
+
+```tsx
+useWindowScrollPosition(({ prevPos, currPos, top, bottom }) => {
+  console.log(prevPos, currPos, top, bottom)
+})
+```
+
+```tsx
+useBodyScrollPosition(({ prevPos, currPos, top, bottom }) => {
+  console.log(prevPos, currPos, top, bottom)
+})
+```
+
+---
+
+### Track element position in the viewport (window)
+
+```tsx
+const setElementRef = useWindowScrollPosition(({ prevPos, currPos, top, bottom }) => {
+  console.log(prevPos, currPos, top, bottom)
 })
 
-useScrollPosition(
-  ({ prevPos, currPos }) => {
-    const isVisible = currPos.y > prevPos.y
+return <div ref={setElementRef} />
+```
 
-    const shouldBeStyle = {
-      visibility: isVisible ? 'visible' : 'hidden',
-      transition: `all 200ms ${isVisible ? 'ease-in' : 'ease-out'}`,
-      transform: isVisible ? 'none' : 'translate(0, -100%)'
-    }
+```tsx
+const setElementRef = useBodyScrollPosition(({ prevPos, currPos, top, bottom }) => {
+  console.log(prevPos, currPos, top, bottom)
+})
 
-    if (JSON.stringify(shouldBeStyle) === JSON.stringify(headerStyle)) return
+return <div ref={setElementRef} />
+```
 
-    setHeaderStyle(shouldBeStyle)
-  },
-  [headerStyle]
+---
+
+### Track scroll position in an overflow container
+
+```tsx
+const [setRootRef] = useOverflowScrollPosition(({ prevPos, currPos, top, bottom }) => {
+  console.log(prevPos, currPos, top, bottom) // root container scroll
+})
+
+return (
+  <div ref={setRootRef} style={{ height: '100px', width: '300px', overflow: 'auto' }} />
 )
-
-const Header = <header style={{ ...headerStyle }} />
 ```
 
-**Change state based on scroll position - Styled Components**
+---
 
-```jsx
-import React, { useState } from 'react'
-import { useScrollPosition } from '@n8tb1t/use-scroll-position'
+### Track element scroll position inside an overflow container
 
-const [hideOnScroll, setHideOnScroll] = useState(true)
+```tsx
+const [setRootRef, setTargetRef] = useOverflowScrollPosition(({ prevPos, currPos, top, bottom }) => {
+  console.log(prevPos, currPos, top, bottom) // target element scroll
+})
 
-useScrollPosition(({ prevPos, currPos }) => {
-  const isShow = currPos.y > prevPos.y
-  if (isShow !== hideOnScroll) setHideOnScroll(isShow)
-}, [hideOnScroll])
+return (
+  <div ref={setRootRef} style={{ height: '100px', width: '300px', overflow: 'auto' }}>
+    <div ref={setTargetRef} />
+  </div>
+)
 ```
 
-**Get scroll position for custom element**
+---
 
-```jsx
-  const [elementPosition, setElementPosition] = useState({ x: 20, y: 150 })
-  const elementRef = useRef()
+## 💡 Use Cases
 
-    // Element scroll position
-  useScrollPosition(
-    ({ currPos }) => {
-      setElementPosition(currPos)
-    }, [], elementRef
-  )
-```
+Here are some common ways developers use `use-scroll-position`:
 
-## Why to use
+- **Sticky Headers & Navbars** – hide, reveal, or shrink navigation bars depending on scroll direction.  
+- **Infinite Scrolling** – detect when the user reaches the bottom of a container or the window to load more data.  
+- **Scroll-Based Animations** – trigger animations or transitions as elements enter the viewport.  
+- **Active Section Highlighting** – update navigation menus (scrollspy effect) as the user scrolls through sections.  
+- **Custom Parallax Effects** – adjust element positions or backgrounds smoothly based on scroll position.  
+- **Performance Monitoring** – track scroll behavior for analytics or user experience optimization.  
 
-`use-scroll-position` returns the scroll position of the browser window, using a modern, stable and performant implementation.
+---
 
-Most of the time scroll listeners do very expensive work, such as querying dom elements, reading height / width and so on.
-`use-scroll-position` solves this by using [`throttling`](https://stackoverflow.com/a/44779316) technic to avoid too many reflows (the browser to recalculate everything).
+## 🤝 Contributing
 
-## TODO
+See the [Contributing Rules](https://github.com/n8tb1t/use-scroll-position/blob/develop/CONTRIBUTING.md).
 
-- [] New API;
-- [x] Refactoring;
-- [] Detect bottom;
-- [] Overflow hidden examples;
-- [x] Calculate on first render;
-- [] Add test examples.
+---

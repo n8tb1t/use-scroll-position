@@ -15,8 +15,8 @@
     "dev": "TURBO_TELEMETRY_DISABLED=true turbo watch dev"
   },
   "dependencies": {
-    "turbo": "2.5.4",
-    "beachball": "2.54.0"
+    "turbo": "2.5.6",
+    "beachball": "2.55.1"
   },
   "packageManager": "pnpm@10.12.4",
   "beachball": {
