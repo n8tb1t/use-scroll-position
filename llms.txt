@@ -1,0 +1,11 @@
+# useScrollPosition
+
+> Lightweight hooks for scroll position detection
+
+## Docs
+
+- [Get started](/use-scroll-position/getting-started): Need reliable scroll data for `animations`, `lazy loading`, or `sticky UI`?
+- [useBodyScrollPosition](/use-scroll-position/use-body-scroll-position): Just like <b>useWindowScrollPosition</b>, <b>useBodyScrollPosition</b> lets you track scrolling — but under the hood it uses a different method to detect position.
+- [useOverflowScrollPosition](/use-scroll-position/use-overflow-scroll-position): `useOverflowScrollPosition` is a React hook for tracking the scroll position inside a scrollable container with `overflow`.
+It returns two ref setters:
+- [useWindowScrollPosition](/use-scroll-position/use-window-scroll-position): Lets you track scrolling on the `global page`. It returns a `callback` that can be passed as a `ref` to any child element. When used this way, it tracks the scroll position of that element instead of the `window`.
