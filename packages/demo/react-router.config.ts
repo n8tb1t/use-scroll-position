@@ -7,6 +7,7 @@ export default {
   prerender: async () => [
     '/navbar',
     '/sidebar',
+    '/overflow',
     '/use-window-position',
     '/use-body-position',
     '/use-overflow-position'
