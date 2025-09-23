@@ -15,8 +15,16 @@ jobs:
       - name: Install workspace
         uses: ./.github/actions/install
 
-      - name: Copy Assets
-        run: mv packages/docs/.build/client/assets packages/docs/.build/client/use-scroll-position
+      - name: Copy Docs Site
+        run: mv packages/docs/dist gh-pages
+        shell: bash
+
+      - name: Copy Examples Assets
+        run: cp packages/demo/.build/client/assets/* gh-pages/assets
+        shell: bash
+
+      - name: Copy Examples Pages
+        run: cp -R packages/demo/.build/client/use-scroll-position/* gh-pages
         shell: bash
 
       - name: Set git credentials
@@ -30,4 +38,4 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: packages/docs/.build/client/use-scroll-position
+          folder: gh-pages

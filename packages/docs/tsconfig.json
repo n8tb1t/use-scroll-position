@@ -1,11 +1,4 @@
 {
-  "files": [],
-  "references": [
-    {
-      "path": "./tsconfig.app.json"
-    },
-    {
-      "path": "./tsconfig.node.json"
-    }
-  ]
+  "extends": "@n8tb1t-tools/typescript/tsconfig.react",
+  "include": ["**/*.ts", "**/*.tsx"]
 }
